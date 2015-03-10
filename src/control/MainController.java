@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import model.*;
 
@@ -25,28 +26,36 @@ public class MainController implements Initializable {
 
     boolean isPlaying;
     Play play;
+    private int newrecord, oldrecord = 0;
     
+    @FXML private AnchorPane anchorPane;
     @FXML private Button btnExit;
     @FXML private Button btnPlay;
-    @FXML private Label lblMessage, lblPercentage;
+    @FXML private Label lblMessage, lblPercentage, lblWLRatio, lblWin, lblRecord, lblLoose;
     @FXML private ImageView imgOne, imgTwo, imgThree;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         play = new Play();
         playCards();
+        lblRecord.setText("0");
     }    
 
     /*
      * imposta una nuova mano della partita
      */
     private void playCards() {
+        lblWin.setText(String.valueOf(play.getWin()));
+        lblLoose.setText(String.valueOf(play.getLoose()));
         Image b = new Image(play.getBackImg());
         imgOne.setImage(b);
         imgTwo.setImage(b);
         imgThree.setImage(b);
-        lblMessage.setText("L'asso di coppe è quello che vince. - Indovina dov'è l'Asso di Coppe ...");
         isPlaying = true;
+        lblMessage.setText("TROVA L'ASSO, É FACILE");
+        anchorPane.setStyle("-fx-base: #E6E6E6;");
+        btnExit.setStyle("-fx-base: #575757;");
+        btnPlay.setStyle("-fx-base: #575757;");
     }
     
     /*
@@ -61,11 +70,25 @@ public class MainController implements Initializable {
         imgTwo.setImage(f2);
         imgThree.setImage(f3);
         if ( play.isWinner(choosen) ) {
-            lblMessage.setText("Complimenti. HAI VINTO!!!");
+            lblWin.setText(String.valueOf(play.getWin()));
+            newrecord++;
+            oldrecord = Integer.valueOf(lblRecord.getText());
+            if (newrecord > oldrecord) {
+                lblRecord.setText(String.valueOf(newrecord));
+                lblMessage.setText("COMPLIMENTI, HAI VINTO!");
+                anchorPane.setStyle("-fx-base: #5EFFA1;");
+            }
+            lblMessage.setText("COMPLIMENTI, HAI VINTO!");
+            anchorPane.setStyle("-fx-base: #5EFFA1;");
         } else {
-            lblMessage.setText("Non ha vinto, ritenta!");
+            play.getWin();
+            newrecord = 0;
+            lblLoose.setText(String.valueOf(play.getLoose()));
+            lblMessage.setText("NON HAI VINTO, RITENTA");
+            anchorPane.setStyle("-fx-base: #FF715E;");
         }
         lblPercentage.setText( play.getPercentage() + " %" );
+        lblWLRatio.setText(String.valueOf(play.getWLRatio()).substring(0,3));
         isPlaying = false;
     }
 
