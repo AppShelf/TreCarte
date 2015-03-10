@@ -60,16 +60,16 @@ public class Play {
 
     }
     
-    public int getWin(){
-        return (int) win;
+    public long getWin(){
+        return win;
     }
     
-    public int getPerse(){
-        return (int) loose;
+    public long getPerse(){
+        return  loose;
     }
     
-    public int getTot(){
-        return (int) (win+loose);
+    public long getTot(){
+        return (win+loose);
     }
 
 }
