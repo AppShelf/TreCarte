@@ -3,18 +3,18 @@
  */
 
 .mainFxmlClass {
-    -fx-font: 14px "Sans Serif";
+    -fx-font: 14px "Arial";
 }
 
 .label {
-    -fx-font: italic "Sans Serif";
-    -fx-text-fill: #FF0000;
+    -fx-font: italic "Arial";
+    -fx-text-fill: #0066FF;
 }
 
 .button {
-    -fx-text-fill: #990000;
-    -fx-background-color: #CCFFCC;
-    -fx-border-color: #660000;
+    -fx-text-fill: #FF0000;
+    -fx-background-color: #FFFF7D;
+    -fx-border-color: #E69B2B;
     -fx-border-radius: 6;
     -fx-padding: 2 8 2 8;
 }

@@ -28,7 +28,7 @@ public class MainController implements Initializable {
     
     @FXML private Button btnExit;
     @FXML private Button btnPlay;
-    @FXML private Label lblMessage, lblPercentage;
+    @FXML private Label lblMessage, lblPercentage, lblWp, lblLp, lblTot, lblWin, lblLose;
     @FXML private ImageView imgOne, imgTwo, imgThree;
     
     @Override
@@ -65,7 +65,12 @@ public class MainController implements Initializable {
         } else {
             lblMessage.setText("Non ha vinto, ritenta!");
         }
-        lblPercentage.setText( play.getPercentage() + " %" );
+        lblPercentage.setText("% vittorie: "+ play.getPercentage() + "%" );
+        lblWp.setText("Win/played: " + String.format("%.2f", play.getWP()));
+        lblLp.setText("Lose/played: " + String.format("%.2f", play.getLP()));
+        lblTot.setText("Totale: " + play.getTot());
+        lblWin.setText("Vittorie: " + play.getWin());
+        lblLose.setText("Sconfitte: " + play.getLose());
         isPlaying = false;
     }
 
