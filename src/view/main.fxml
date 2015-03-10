@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -8,26 +10,91 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: lightgray;" styleClass="mainFxmlClass" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MainController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MainController">
     <children>
-      <Button fx:id="btnExit" cancelButton="true" focusTraversable="false" layoutX="541.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleBtnExitAction" styleClass="mainFxmlClass" text="Esci" />
-      <Label fx:id="lblMessage" layoutX="30.0" layoutY="44.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="463.0" />
-      <Label fx:id="lblPercentage" layoutX="30.0" layoutY="65.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="184.0" />
-      <ImageView fx:id="imgOne" fitHeight="230.0" fitWidth="140.0" layoutX="68.0" layoutY="112.0" onMouseClicked="#handleImgOneClick" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnPlay" focusTraversable="false" layoutX="329.0" layoutY="368.0" onAction="#handleBtnPlayAction" prefHeight="40.0" prefWidth="160.0" text="Nuova partita" textFill="WHITE">
+         <font>
+            <Font name="Gadugi Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="60.0" radius="29.5" width="60.0" />
+         </effect></Button>
+      <Button fx:id="btnExit" cancelButton="true" focusTraversable="false" layoutX="146.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleBtnExitAction" prefHeight="40.0" prefWidth="160.0" text="Esci" textFill="WHITE">
+         <font>
+            <Font name="Gadugi Bold" size="18.0" />
+         </font>
+         <effect>
+            <DropShadow height="60.0" radius="29.5" width="60.0" />
+         </effect></Button>
+      <Label fx:id="lblMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="23.0" minHeight="16" minWidth="69" prefHeight="40.0" prefWidth="480.0" text="TROVA L'ASSO, É FACILE" textFill="#3c3c3c">
+         <font>
+            <Font name="Rockwell" size="22.0" />
+         </font></Label>
+      <ImageView fx:id="imgOne" fitHeight="230.0" fitWidth="140.0" layoutX="86.0" layoutY="78.0" onMouseClicked="#handleImgOneClick" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/retro.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgTwo" fitHeight="230.0" fitWidth="140.0" layoutX="232.0" layoutY="112.0" onMouseClicked="#handleImgTwoClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgTwo" fitHeight="230.0" fitWidth="140.0" layoutX="250.0" layoutY="78.0" onMouseClicked="#handleImgTwoClick" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/retro.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgThree" fitHeight="230.0" fitWidth="140.0" layoutX="391.0" layoutY="112.0" onMouseClicked="#handleImgThreeClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgThree" fitHeight="230.0" fitWidth="140.0" layoutX="409.0" layoutY="78.0" onMouseClicked="#handleImgThreeClick" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/retro.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnPlay" defaultButton="true" layoutX="501.0" layoutY="394.0" onAction="#handleBtnPlayAction" styleClass="mainFxmlClass" text="Nuova partita" />
+      <Label fx:id="lblPercentage" layoutX="494.0" layoutY="483.0" prefHeight="17.0" prefWidth="63.0" textFill="#2c2c2c">
+         <font>
+            <Font name="Gadugi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutX="70.0" layoutY="450.0" prefHeight="7.0" prefWidth="500.0" />
+      <Label fx:id="lblWLRatio" layoutX="260.0" layoutY="537.0" prefHeight="17.0" prefWidth="63.0" textFill="#2c2c2c">
+         <font>
+            <Font name="Gadugi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblWin" layoutX="142.0" layoutY="483.0" prefHeight="17.0" prefWidth="63.0" textFill="#2c2c2c">
+         <font>
+            <Font name="Gadugi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRecord" layoutX="478.0" layoutY="537.0" prefHeight="17.0" prefWidth="63.0" textFill="#2c2c2c">
+         <font>
+            <Font name="Gadugi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="370.0" layoutY="483.0" text="Percentuale Vinte:" textFill="#3c3c3c">
+         <font>
+            <Font name="Gadugi" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="101.0" layoutY="483.0" text="Vinte:" textFill="#3c3c3c">
+         <font>
+            <Font name="Gadugi" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="232.0" layoutY="483.0" text="Perse:" textFill="#3c3c3c">
+         <font>
+            <Font name="Gadugi" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblLoose" layoutX="275.0" layoutY="483.0" prefHeight="17.0" prefWidth="63.0" textFill="#2c2c2c">
+         <font>
+            <Font name="Gadugi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="99.0" layoutY="537.0" text="Vittorie/Sconfitte Ratio:" textFill="#3c3c3c">
+         <font>
+            <Font name="Gadugi" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="346.0" layoutY="537.0" prefHeight="21.0" prefWidth="132.0" text="Record (di seguito):" textFill="#3c3c3c">
+         <font>
+            <Font name="Gadugi" size="15.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

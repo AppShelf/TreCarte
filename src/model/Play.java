@@ -11,7 +11,7 @@ public class Play {
 
     private final String backImg;
     private final Hand theHand;
-    private long win, loose;
+    private int win, loose, total;
 
     public Play() {
         win = loose = 0;
@@ -20,7 +20,6 @@ public class Play {
         Card cavallo = new Card("Cavallo", "/view/resources/cavallo.jpg");
         Card re = new Card("Re", "/view/resources/re.jpg");
         theHand = new Hand(asso, cavallo, re);
-        theHand.Shuffle();
     }
 
     public void newHand() {
@@ -31,12 +30,14 @@ public class Play {
         return ( idx<0 || idx>2 ? null : theHand.getCard(idx) );
     }
 
-    public boolean isWinner(int idx) {
+    public boolean isWinner(int idx) { 
         if (idx==theHand.getWinner()) {
             win++;
+            getTotal();
             return true;
         }
         loose++;
+        getTotal();
         return false;
     }
     
@@ -45,7 +46,26 @@ public class Play {
     }
 
     public int getPercentage() {
-        if ( (win+loose)==0) return 0;
-        return (int) ( win * 100 / (win+loose) );
+        if (total == 0) return 0;
+        return (int) (win*100/total);
+    }
+    
+    public int getTotal() {
+        total = win + loose;
+        return total;
+    }
+    
+    public float getWLRatio() {
+        if (loose == 0) return win;
+        float result = (float) win/loose;
+        return result;
+    }
+    
+    public int getWin() {
+        return win;
+    }
+    
+    public int getLoose() {
+        return loose;
     }
 }
