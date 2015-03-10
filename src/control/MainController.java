@@ -28,7 +28,7 @@ public class MainController implements Initializable {
     
     @FXML private Button btnExit;
     @FXML private Button btnPlay;
-    @FXML private Label lblMessage, lblPercentage;
+    @FXML private Label lblMessage, lblPercentage, lblTotal, lblRapporto;
     @FXML private ImageView imgOne, imgTwo, imgThree;
     
     @Override
@@ -45,7 +45,7 @@ public class MainController implements Initializable {
         imgOne.setImage(b);
         imgTwo.setImage(b);
         imgThree.setImage(b);
-        lblMessage.setText("L'asso di coppe è quello che vince. - Indovina dov'è l'Asso di Coppe ...");
+        lblMessage.setText("TROVA L'ASSO DI COPPE!!!");
         isPlaying = true;
     }
     
@@ -61,11 +61,13 @@ public class MainController implements Initializable {
         imgTwo.setImage(f2);
         imgThree.setImage(f3);
         if ( play.isWinner(choosen) ) {
-            lblMessage.setText("Complimenti. HAI VINTO!!!");
+            lblMessage.setText("WIIIIIIIINNNN!!!!");
         } else {
-            lblMessage.setText("Non ha vinto, ritenta!");
+            lblMessage.setText("LOSE! TRY AGAIN!!!");
         }
         lblPercentage.setText( play.getPercentage() + " %" );
+        lblTotal.setText("Total: " + play.getTotal());
+        lblRapporto.setText("Rapporto: " + String.format("%.2f", play.getRapporto()));
         isPlaying = false;
     }
 
@@ -78,7 +80,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void handleBtnExitAction(ActionEvent event) {
-        System.out.println("Game over: bye bye.");
+        System.out.println("GAAAMMMEEEEEE OVERRR");
         Platform.exit();
     }
 

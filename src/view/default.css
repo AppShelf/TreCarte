@@ -19,3 +19,7 @@
     -fx-padding: 2 8 2 8;
 }
 
+#titolo {
+    -fx-text-fill: yellow;
+    -fx-font: 30px "Sans Serif";
+}
