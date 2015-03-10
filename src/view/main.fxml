@@ -29,5 +29,6 @@
          </image>
       </ImageView>
       <Button fx:id="btnPlay" defaultButton="true" layoutX="501.0" layoutY="394.0" onAction="#handleBtnPlayAction" styleClass="mainFxmlClass" text="Nuova partita" />
+      <Label id="lblRatio" fx:id="lblRatio" layoutX="231.0" layoutY="82.0" text="Ratio Vincite / Perdite :" />
     </children>
 </AnchorPane>

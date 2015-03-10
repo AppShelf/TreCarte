@@ -28,24 +28,35 @@ public class Play {
     }
 
     public Card getCard(int idx) {
-        return ( idx<0 || idx>2 ? null : theHand.getCard(idx) );
+        return (idx < 0 || idx > 2 ? null : theHand.getCard(idx));
     }
 
     public boolean isWinner(int idx) {
-        if (idx==theHand.getWinner()) {
+        if (idx == theHand.getWinner()) {
             win++;
             return true;
         }
         loose++;
         return false;
     }
-    
+
     public String getBackImg() {
         return backImg;
     }
 
     public int getPercentage() {
-        if ( (win+loose)==0) return 0;
-        return (int) ( win * 100 / (win+loose) );
+        if ((win + loose) == 0) {
+            return 0;
+        }
+        return (int) (win * 100 / (win + loose));
+    }
+
+    
+    public double getTotale()  {
+        return (win + loose);
+    }
+    
+    public double ratioWinLoose() {
+        return this.win/getTotale();
     }
 }
