@@ -48,4 +48,17 @@ public class Play {
         if ( (win+loose)==0) return 0;
         return (int) ( win * 100 / (win+loose) );
     }
+    
+    public double getRapporto () {
+        if (win+loose == 0) {
+            return win;
+        }
+        else {
+            return (double) win/(win+loose);
+        }
+    }
+    
+    public int getTotal () {
+        return (int) (win + loose);
+    }
 }
