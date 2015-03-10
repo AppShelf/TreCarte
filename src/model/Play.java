@@ -12,7 +12,7 @@ public class Play {
     private final String backImg;
     private final Hand theHand;
     private long win, loose;
-
+    
     public Play() {
         win = loose = 0;
         backImg = "/view/resources/retro.jpg";
@@ -47,5 +47,27 @@ public class Play {
     public int getPercentage() {
         if ( (win+loose)==0) return 0;
         return (int) ( win * 100 / (win+loose) );
+    }
+    
+    public double getWP() {
+        if ( (win+loose)==0) return 0;
+        return (double) win / (win+loose);
+    }
+    
+    public double getLP() {
+        if ( (win+loose)==0) return 0;
+        return (double) loose / (win+loose);
+    }
+    
+    public int getTot() {
+        return (int) (win + loose);
+    }
+    
+    public int getWin() {
+        return (int) win;
+    }
+    
+    public int getLose() {
+        return (int) loose;
     }
 }
