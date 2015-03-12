@@ -1,12 +1,6 @@
-/*
- * Play.java: modello di una partita al gioco delle tre carte.
- */
+
 package model;
 
-/**
- *
- * @author Sandro
- */
 public class Play {
 
     private final String backImg;
@@ -48,4 +42,21 @@ public class Play {
         if ( (win+loose)==0) return 0;
         return (int) ( win * 100 / (win+loose) );
     }
+    
+    public double winloose(){
+        
+        if ( (win+loose)==0) return 0;
+        return (double )  win / (win+loose);
+    }
+       
+        public int playWin(){
+        if (win==0) return 0;
+        return (int )  win;
+        }
+        public int playLoose(){
+        if ( loose==0) return 0;
+        return (int)loose;
+        }
 }
+
+
