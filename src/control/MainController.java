@@ -1,6 +1,4 @@
-/*
- * MainController.java
- */
+
 package control;
 
 import java.net.URL;
@@ -17,10 +15,6 @@ import javafx.scene.input.MouseEvent;
 
 import model.*;
 
-/**
- *
- * @author Sandro
- */
 public class MainController implements Initializable {
 
     boolean isPlaying;
@@ -28,7 +22,7 @@ public class MainController implements Initializable {
     
     @FXML private Button btnExit;
     @FXML private Button btnPlay;
-    @FXML private Label lblMessage, lblPercentage;
+    @FXML private Label lblMessage, lblPercentage,lblWinLoose,lblWin,lblLoose;
     @FXML private ImageView imgOne, imgTwo, imgThree;
     
     @Override
@@ -66,6 +60,9 @@ public class MainController implements Initializable {
             lblMessage.setText("Non ha vinto, ritenta!");
         }
         lblPercentage.setText( play.getPercentage() + " %" );
+        lblWinLoose.setText("Vincite/Perdite: "  + play.winloose ());
+        lblWin.setText("Vincite: "  + play.playWin ());
+        lblLoose.setText("Perdite: "  + play.playLoose());
         isPlaying = false;
     }
 

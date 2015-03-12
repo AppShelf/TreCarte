@@ -8,13 +8,13 @@
 
 .label {
     -fx-font: italic "Sans Serif";
-    -fx-text-fill: #FF0000;
+    -fx-text-fill: #FF00FF;
 }
 
 .button {
-    -fx-text-fill: #990000;
+    -fx-text-fill: #FF1493;
     -fx-background-color: #CCFFCC;
-    -fx-border-color: #660000;
+    -fx-border-color: #1E90FF;
     -fx-border-radius: 6;
     -fx-padding: 2 8 2 8;
 }
