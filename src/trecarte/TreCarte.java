@@ -16,11 +16,12 @@ import javafx.stage.Stage;
  * @author Sandro
  */
 public class TreCarte extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/view/main.fxml"));
         Scene scene = new Scene(root);
+        stage.setTitle("Tre Carte");
         stage.setScene(scene);
         stage.show();
     }
@@ -31,5 +32,5 @@ public class TreCarte extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

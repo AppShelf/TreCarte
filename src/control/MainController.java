@@ -25,17 +25,23 @@ public class MainController implements Initializable {
 
     boolean isPlaying;
     Play play;
-    
-    @FXML private Button btnExit;
-    @FXML private Button btnPlay;
-    @FXML private Label lblMessage, lblPercentage;
-    @FXML private ImageView imgOne, imgTwo, imgThree;
-    
+
+    @FXML
+    private Button btnExit;
+    @FXML
+    private Button btnPlay;
+    @FXML
+    private Button btnReset;
+    @FXML
+    private Label lblMessage, lblPercentage, rapportoWin_Lose;
+    @FXML
+    private ImageView imgOne, imgTwo, imgThree;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         play = new Play();
         playCards();
-    }    
+    }
 
     /*
      * imposta una nuova mano della partita
@@ -48,7 +54,7 @@ public class MainController implements Initializable {
         lblMessage.setText("L'asso di coppe è quello che vince. - Indovina dov'è l'Asso di Coppe ...");
         isPlaying = true;
     }
-    
+
     /*
      * mostra il valore delle tre carte della partita corrente
      * indicando se quella scelta è la vincente o no
@@ -60,18 +66,21 @@ public class MainController implements Initializable {
         imgOne.setImage(f1);
         imgTwo.setImage(f2);
         imgThree.setImage(f3);
-        if ( play.isWinner(choosen) ) {
+        if (play.isWinner(choosen)) {
             lblMessage.setText("Complimenti. HAI VINTO!!!");
         } else {
             lblMessage.setText("Non ha vinto, ritenta!");
         }
-        lblPercentage.setText( play.getPercentage() + " %" );
+        lblPercentage.setText(play.getPercentage() + " %");
+        rapportoWin_Lose.setText("NumeroWin: " + play.num_win() + "\tTotPlayed: " + play.tot_played() + "\tRapporto: " + play.rapporto());
         isPlaying = false;
     }
 
     @FXML
     private void handleBtnPlayAction(ActionEvent event) {
-        if (isPlaying) return;
+        if (isPlaying) {
+            return;
+        }
         play.newHand();
         playCards();
     }
@@ -84,20 +93,33 @@ public class MainController implements Initializable {
 
     @FXML
     private void handleImgOneClick(MouseEvent event) {
-        if (!isPlaying) return;
+        if (!isPlaying) {
+            return;
+        }
         showCards(0);
     }
-    
+
     @FXML
     private void handleImgTwoClick(MouseEvent event) {
-        if (!isPlaying) return;
+        if (!isPlaying) {
+            return;
+        }
         showCards(1);
     }
-    
+
     @FXML
     private void handleImgThreeClick(MouseEvent event) {
-        if (!isPlaying) return;
+        if (!isPlaying) {
+            return;
+        }
         showCards(2);
     }
-    
+
+    @FXML
+    public void resetDati() {
+        play.reset();
+        rapportoWin_Lose.setText("NumeroWin: " + 0 + "\tTotPlayed: " + 0 + "\tRapporto: " + 0);
+        lblPercentage.setText("0" + " %");
+    }
+
 }
