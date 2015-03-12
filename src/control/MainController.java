@@ -28,7 +28,7 @@ public class MainController implements Initializable {
     
     @FXML private Button btnExit;
     @FXML private Button btnPlay;
-    @FXML private Label lblMessage, lblPercentage;
+    @FXML private Label lblMessage, lblPercentage, lblvtr, lbltot;
     @FXML private ImageView imgOne, imgTwo, imgThree;
     
     @Override
@@ -45,7 +45,7 @@ public class MainController implements Initializable {
         imgOne.setImage(b);
         imgTwo.setImage(b);
         imgThree.setImage(b);
-        lblMessage.setText("L'asso di coppe è quello che vince. - Indovina dov'è l'Asso di Coppe ...");
+        lblMessage.setText("Per Vincere trova l'asso!");
         isPlaying = true;
     }
     
@@ -66,6 +66,8 @@ public class MainController implements Initializable {
             lblMessage.setText("Non ha vinto, ritenta!");
         }
         lblPercentage.setText( play.getPercentage() + " %" );
+        lblvtr.setText(play.getVittorie()+"");
+        lbltot.setText(play.getTotale()+"");
         isPlaying = false;
     }
 
