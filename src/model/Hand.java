@@ -12,9 +12,9 @@ import java.util.Random;
 public class Hand {
 
     private static final Random randomizer = new Random(System.currentTimeMillis());
-    private static final int[][] possibleHands = { {0,1,2}, {0,2,1}, {1,0,2}, {1,2,0}, {2,0,1}, {2,1,0} };
-    private static final int[] possibleIdxAsso = { 0, 0, 1, 2, 1, 2 };
-    
+    private static final int[][] possibleHands = {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}};
+    private static final int[] possibleIdxAsso = {0, 0, 1, 2, 1, 2};
+
     int idx_asso;
     Card[] cards, hand;
 
@@ -29,16 +29,17 @@ public class Hand {
     }
 
     public Card getCard(int idx) {
-        return ( idx<0 || idx>2 ? null : hand[idx] );
+        return (idx < 0 || idx > 2 ? null : hand[idx]);
     }
 
     public int getWinner() {
         return idx_asso;
     }
+
     
     /*
-    * lancia una nuova mano di carte scegliendo a caso l'ordine delle tre carte
-    */
+     * lancia una nuova mano di carte scegliendo a caso l'ordine delle tre carte
+     */
     public int Shuffle() {
         int choosen = randomizer.nextInt(6);
         idx_asso = possibleIdxAsso[choosen];
@@ -47,5 +48,5 @@ public class Hand {
         hand[2] = cards[possibleHands[choosen][2]];
         return choosen;
     }
-    
+
 }

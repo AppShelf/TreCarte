@@ -11,10 +11,10 @@ public class Play {
 
     private final String backImg;
     private final Hand theHand;
-    private long win, loose;
+    private int win, lose, tot;
 
     public Play() {
-        win = loose = 0;
+        win = lose = 0;
         backImg = "/view/resources/retro.jpg";
         Card asso = new Card("Asso", "/view/resources/asso.jpg");
         Card cavallo = new Card("Cavallo", "/view/resources/cavallo.jpg");
@@ -28,24 +28,51 @@ public class Play {
     }
 
     public Card getCard(int idx) {
-        return ( idx<0 || idx>2 ? null : theHand.getCard(idx) );
+        return (idx < 0 || idx > 2 ? null : theHand.getCard(idx));
     }
 
     public boolean isWinner(int idx) {
-        if (idx==theHand.getWinner()) {
+        if (idx == theHand.getWinner()) {
             win++;
             return true;
         }
-        loose++;
+        lose++;
         return false;
     }
-    
+
     public String getBackImg() {
         return backImg;
     }
 
     public int getPercentage() {
-        if ( (win+loose)==0) return 0;
-        return (int) ( win * 100 / (win+loose) );
+        if ((win + lose) == 0) {
+            return 0;
+        }
+        return (win * 100 / (win + lose));
     }
+
+    public int num_win() {
+        return win;
+    }
+
+    public int tot_played() {
+        tot = win + lose;
+        return tot;
+    }
+
+    public void reset() {
+        win = 0;
+        lose = 0;
+        tot = 0;
+    }
+
+    public double rapporto() {
+        if (tot == 0) {
+            return 0;
+        }
+        double r = getPercentage();
+        System.out.println(r);
+        return r / 100;
+    }
+    
 }

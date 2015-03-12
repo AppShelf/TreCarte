@@ -8,14 +8,14 @@
 
 .label {
     -fx-font: italic "Comic Sans MS";
-    -fx-text-fill: #00FFFF;
+    -fx-text-fill: aquamarine;
 }
 
 .button {
-    -fx-text-fill: #990000;
-    -fx-background-color: #CCFFCC;
-    -fx-border-color: #660000;
-    -fx-border-radius: 6;
-    -fx-padding: 2 8 2 8;
+    -fx-text-fill: gray;
+    -fx-background-color: orange;
+    -fx-border-color: aquamarine;
+    -fx-border-radius: 3;
+    -fx-padding: 4 8 4 8;
 }
 
