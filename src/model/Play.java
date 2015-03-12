@@ -48,4 +48,13 @@ public class Play {
         if ( (win+loose)==0) return 0;
         return (int) ( win * 100 / (win+loose) );
     }
+    
+     public int getVittorie() {
+       return (int) win;
+    }
+     
+     public int getTotale() {
+         int tot= (int) (win+loose);
+       return (int) tot;
+    }
 }
