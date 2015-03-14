@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import model.*;
 
@@ -28,7 +29,8 @@ public class MainController implements Initializable {
     
     @FXML private Button btnExit;
     @FXML private Button btnPlay;
-    @FXML private Label lblMessage, lblPercentage;
+    @FXML private Label lblMessage, lblPercentage, lblRapporto;
+    @FXML private AnchorPane sfondo;
     @FXML private ImageView imgOne, imgTwo, imgThree;
     
     @Override
@@ -65,9 +67,12 @@ public class MainController implements Initializable {
         } else {
             lblMessage.setText("Non ha vinto, ritenta!");
         }
-        lblPercentage.setText( play.getPercentage() + " %" );
+        lblPercentage.setText( "Percentuale " + play.getPercentage() + " %" );
+        lblRapporto.setText("Rapporto partite vinte su giocate " + play.rapWL() );
         isPlaying = false;
+        
     }
+    
 
     @FXML
     private void handleBtnPlayAction(ActionEvent event) {

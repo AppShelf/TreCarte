@@ -7,8 +7,9 @@
 }
 
 .label {
-    -fx-font: italic "Sans Serif";
-    -fx-text-fill: #FF0000;
+    -fx-font: 15px "Sans Serif";
+    -fx-text-fill: #000000;
+    
 }
 
 .button {
@@ -17,5 +18,8 @@
     -fx-border-color: #660000;
     -fx-border-radius: 6;
     -fx-padding: 2 8 2 8;
+}
+#sfondo{
+    -fx-background-image: url('resources/sfondo.jpg');
 }
 

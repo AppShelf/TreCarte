@@ -48,4 +48,10 @@ public class Play {
         if ( (win+loose)==0) return 0;
         return (int) ( win * 100 / (win+loose) );
     }
+    
+    public double rapWL(){
+        int tot = (int) (win+loose);
+        return (win/ (double) tot);
+    }
+    
 }
