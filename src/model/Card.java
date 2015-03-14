@@ -1,12 +1,5 @@
-/*
- * Card.java: modella gli oggetti di tipo Carta.
- */
 package model;
 
-/**
- *
- * @author Sandro
- */
 public class Card {
 
     String name, frontImg;

@@ -1,12 +1,5 @@
-/*
- * Play.java: modello di una partita al gioco delle tre carte.
- */
 package model;
 
-/**
- *
- * @author Sandro
- */
 public class Play {
 
     private final String backImg;
@@ -51,12 +44,11 @@ public class Play {
         return (int) (win * 100 / (win + loose));
     }
 
-    
-    public double getTotale()  {
-        return (win + loose);
+    public int getTotale() {
+        return (int) (win + loose);
     }
-    
+
     public double ratioWinLoose() {
-        return this.win/getTotale();
+        return win / (double) getTotale();
     }
 }

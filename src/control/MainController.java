@@ -1,6 +1,3 @@
-/*
- * MainController.java
- */
 package control;
 
 import java.net.URL;
@@ -14,28 +11,31 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 import model.*;
 
-/**
- *
- * @author Sandro
- */
 public class MainController implements Initializable {
 
     boolean isPlaying;
     Play play;
-    
-    @FXML private Button btnExit;
-    @FXML private Button btnPlay;
-    @FXML private Label lblMessage, lblPercentage, lblRatio;
-    @FXML private ImageView imgOne, imgTwo, imgThree;
-    
+
+    @FXML
+    private Button btnExit;
+    @FXML
+    private Button btnPlay;
+    @FXML
+    private Label lblMessage, lblPercentage, lblRatio, lblPartite;
+    @FXML
+    private ImageView imgOne, imgTwo, imgThree;
+    @FXML
+    private AnchorPane paneTavolo;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         play = new Play();
         playCards();
-    }    
+    }
 
     /*
      * imposta una nuova mano della partita
@@ -48,7 +48,7 @@ public class MainController implements Initializable {
         lblMessage.setText("L'asso di coppe è quello che vince. - Indovina dov'è l'Asso di Coppe ...");
         isPlaying = true;
     }
-    
+
     /*
      * mostra il valore delle tre carte della partita corrente
      * indicando se quella scelta è la vincente o no
@@ -60,45 +60,60 @@ public class MainController implements Initializable {
         imgOne.setImage(f1);
         imgTwo.setImage(f2);
         imgThree.setImage(f3);
-        if ( play.isWinner(choosen) ) {
-            lblMessage.setText("Complimenti. HAI VINTO!!!");
+        if (play.isWinner(choosen)) {
+            lblMessage.setText("Hai Vinto");
         } else {
-            lblMessage.setText("Non ha vinto, ritenta!");
+            lblMessage.setText("Ritenta");
         }
-        lblPercentage.setText( play.getPercentage() + " %" );
-        lblRatio.setText("Ratio Vincite / Perdite: " + play.ratioWinLoose());
+        lblPercentage.setText("Percentuale Vincite: " + play.getPercentage() + " %");
+
+        double ratio = play.ratioWinLoose();
+
+        /* Approssimiamo a 2 cifre dopo la virgola */
+        ratio = Math.round(ratio * 100);
+        ratio = ratio / 100;
+
+        lblRatio.setText("Ratio Vincite / Perdite: " + ratio);
+        lblPartite.setText("Numero Partite: " + play.getTotale());
         isPlaying = false;
     }
 
     @FXML
     private void handleBtnPlayAction(ActionEvent event) {
-        if (isPlaying) return;
+        if (isPlaying) {
+            return;
+        }
         play.newHand();
         playCards();
     }
 
     @FXML
     private void handleBtnExitAction(ActionEvent event) {
-        System.out.println("Game over: bye bye.");
         Platform.exit();
     }
 
     @FXML
     private void handleImgOneClick(MouseEvent event) {
-        if (!isPlaying) return;
+        if (!isPlaying) {
+            return;
+        }
         showCards(0);
     }
-    
+
     @FXML
     private void handleImgTwoClick(MouseEvent event) {
-        if (!isPlaying) return;
+        if (!isPlaying) {
+            return;
+        }
         showCards(1);
     }
-    
+
     @FXML
     private void handleImgThreeClick(MouseEvent event) {
-        if (!isPlaying) return;
+        if (!isPlaying) {
+            return;
+        }
         showCards(2);
     }
-    
+
 }
