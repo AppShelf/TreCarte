@@ -1,12 +1,5 @@
-/*
- * Play.java: modello di una partita al gioco delle tre carte.
- */
 package model;
 
-/**
- *
- * @author Sandro
- */
 public class Play {
 
     private final String backImg;
@@ -28,24 +21,34 @@ public class Play {
     }
 
     public Card getCard(int idx) {
-        return ( idx<0 || idx>2 ? null : theHand.getCard(idx) );
+        return (idx < 0 || idx > 2 ? null : theHand.getCard(idx));
     }
 
     public boolean isWinner(int idx) {
-        if (idx==theHand.getWinner()) {
+        if (idx == theHand.getWinner()) {
             win++;
             return true;
         }
         loose++;
         return false;
     }
-    
+
     public String getBackImg() {
         return backImg;
     }
 
     public int getPercentage() {
-        if ( (win+loose)==0) return 0;
-        return (int) ( win * 100 / (win+loose) );
+        if ((win + loose) == 0) {
+            return 0;
+        }
+        return (int) (win * 100 / (win + loose));
+    }
+
+    public int getTotale() {
+        return (int) (win + loose);
+    }
+
+    public double ratioWinLoose() {
+        return win / (double) getTotale();
     }
 }

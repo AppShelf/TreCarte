@@ -1,21 +1,25 @@
-/*
- * Default stylesheet file.
- */
-
-.mainFxmlClass {
-    -fx-font: 14px "Sans Serif";
-}
-
-.label {
-    -fx-font: italic "Sans Serif";
-    -fx-text-fill: #FF0000;
+* {
+    -fx-font: 14px initial;
+    -fx-text-fill: #f0f0f0;
 }
 
 .button {
-    -fx-text-fill: #990000;
-    -fx-background-color: #CCFFCC;
+    -fx-text-fill: #000000;
     -fx-border-color: #660000;
     -fx-border-radius: 6;
     -fx-padding: 2 8 2 8;
+}
+
+
+#paneTavolo {
+    -fx-background-image: url('resources/tavolo.jpg');
+}
+
+#btnPlay:hover {
+    -fx-background-color: #66ff66;
+}
+
+#btnExit:hover {
+    -fx-background-color: #FF0000;
 }
 
