@@ -8,10 +8,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: lightgray;" styleClass="mainFxmlClass" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MainController">
+<AnchorPane id="sfondo" fx:id="sfondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="646.0" stylesheets="@default.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MainController">
     <children>
       <Button fx:id="btnExit" cancelButton="true" focusTraversable="false" layoutX="541.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleBtnExitAction" styleClass="mainFxmlClass" text="Esci" />
-      <Label fx:id="lblMessage" layoutX="30.0" layoutY="44.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="463.0" />
+      <Label fx:id="lblMessage" layoutX="52.0" layoutY="44.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="463.0" />
       <Label fx:id="lblPercentage" layoutX="30.0" layoutY="65.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="184.0" />
       <ImageView fx:id="imgOne" fitHeight="230.0" fitWidth="140.0" layoutX="68.0" layoutY="112.0" onMouseClicked="#handleImgOneClick" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -29,5 +29,6 @@
          </image>
       </ImageView>
       <Button fx:id="btnPlay" defaultButton="true" layoutX="501.0" layoutY="394.0" onAction="#handleBtnPlayAction" styleClass="mainFxmlClass" text="Nuova partita" />
+      <Label fx:id="lblRapporto" layoutX="36.0" layoutY="384.0" prefHeight="20.0" prefWidth="243.0" text="Rapporto partite vinte su giocate" />
     </children>
 </AnchorPane>
