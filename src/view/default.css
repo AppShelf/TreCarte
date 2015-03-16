@@ -7,7 +7,7 @@
 }
 
 .label {
-    -fx-font: italic "Sans Serif";
+    -fx-font: italic 14px "Sans Serif";
     -fx-text-fill: #FF0000;
 }
 
