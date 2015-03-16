@@ -3,10 +3,7 @@
  */
 package model;
 
-/**
- *
- * @author Sandro
- */
+
 public class Play {
 
     private final String backImg;
@@ -48,4 +45,21 @@ public class Play {
         if ( (win+loose)==0) return 0;
         return (int) ( win * 100 / (win+loose) );
     }
+    
+    public double getRapporto(){
+        if ( (win+loose)==0) return 0;
+        return (double)  win/(win+loose);
+    }
+    
+   public int getTot() {
+       return (int) (win+loose);
+   }
+   
+   public int getWin() {
+       return (int) win;
+   }
+   
+   public int getLoose() {
+       return (int) loose;
+   }
 }

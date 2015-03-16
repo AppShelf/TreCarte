@@ -17,10 +17,7 @@ import javafx.scene.input.MouseEvent;
 
 import model.*;
 
-/**
- *
- * @author Sandro
- */
+
 public class MainController implements Initializable {
 
     boolean isPlaying;
@@ -28,7 +25,8 @@ public class MainController implements Initializable {
     
     @FXML private Button btnExit;
     @FXML private Button btnPlay;
-    @FXML private Label lblMessage, lblPercentage;
+    @FXML private Label lblMessage, lblPercentage, lblPercentage1, lblPercentage11;
+    @FXML private Label lblPercentage111, lblPercentage1111;
     @FXML private ImageView imgOne, imgTwo, imgThree;
     
     @Override
@@ -65,7 +63,11 @@ public class MainController implements Initializable {
         } else {
             lblMessage.setText("Non ha vinto, ritenta!");
         }
-        lblPercentage.setText( play.getPercentage() + " %" );
+        lblPercentage.setText( play.getPercentage() + " % di partite vinte" );
+        lblPercentage11.setText("Totale partite giocate: "+play.getTot());
+        lblPercentage111.setText("Totale vinte: "+play.getWin());
+        lblPercentage1111.setText("Totale perse: "+play.getLoose());
+        lblPercentage1.setText("Il rapporto di p. vinte è 1 a: "+play.getRapporto());
         isPlaying = false;
     }
 
