@@ -29,5 +29,9 @@
          </image>
       </ImageView>
       <Button fx:id="btnPlay" defaultButton="true" layoutX="501.0" layoutY="394.0" onAction="#handleBtnPlayAction" styleClass="mainFxmlClass" text="Nuova partita" />
+      <Label fx:id="lblRapporto" layoutX="232.0" layoutY="65.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="184.0" />
+      <Label fx:id="lblTot" layoutX="68.0" layoutY="359.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="184.0" />
+      <Label fx:id="lblWin" layoutX="68.0" layoutY="386.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="184.0" />
+      <Label fx:id="lblPerse" layoutX="68.0" layoutY="420.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="184.0" />
     </children>
 </AnchorPane>
